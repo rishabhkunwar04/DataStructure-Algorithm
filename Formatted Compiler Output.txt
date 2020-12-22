@@ -1,7 +1,0 @@
-C:\Users\RISHABH SINGH\OneDrive\Documents\image_rotn.cpp	In function 'int main()':
-11	7	C:\Users\RISHABH SINGH\OneDrive\Documents\image_rotn.cpp	[Error] expected primary-expression before 'int'
-11	15	C:\Users\RISHABH SINGH\OneDrive\Documents\image_rotn.cpp	[Error] 'j' was not declared in this scope
-20	7	C:\Users\RISHABH SINGH\OneDrive\Documents\image_rotn.cpp	[Error] expected primary-expression before 'int'
-20	15	C:\Users\RISHABH SINGH\OneDrive\Documents\image_rotn.cpp	[Error] 'j' was not declared in this scope
-27	7	C:\Users\RISHABH SINGH\OneDrive\Documents\image_rotn.cpp	[Error] expected primary-expression before 'int'
-27	15	C:\Users\RISHABH SINGH\OneDrive\Documents\image_rotn.cpp	[Error] 'j' was not declared in this scope
