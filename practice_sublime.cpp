@@ -1,18 +1,25 @@
 #include <bits/stdc++.h>
+#define ll long long int
+#define ull unsigned long long int
 using namespace std;
 
+ const unsigned int MOD = 1000000007; 
 
-int main() {
-    //code
-    int n =10;
-    for(int i=1;i<=n;i++)
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    ll t;
+    cin>>t;
+    while(t--)
     {
-        cout<<i;
-        if(i)
-        {
-            i++;
-        }
+        
+        cout<<endl;
+
     }
-    
+   
     return 0;
 }
+
