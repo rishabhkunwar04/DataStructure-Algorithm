@@ -188,7 +188,9 @@ bool isvalid(int v[],int max,int k,int n)//determining for max value allocation 
 
 	for(int i=0;i<n;++i)
 	{
-     if(sum>max)
+		if(v[i]>max)return false;
+
+     if(sum+v[i]>max)
      {
          sum=v[i];
      	 st++;
@@ -331,6 +333,7 @@ int main()
 }*/
 
 //PARATA (SPOJ)
+
 /*#include <iostream>
 #include<algorithm>
 using namespace std;
@@ -392,15 +395,18 @@ int findMissingUtil(int arr[], int low,
                            int high, int diff) 
 { 
     // There must be two elements to find the missing 
+
     if (high <= low) 
         return INT_MAX; 
   
     // Find index of middle element 
+
     int mid = low + (high - low) / 2; 
   
     // The element just after the middle element is missing. 
     // The arr[mid+1] must exist, because we return when 
     // (low == high) and take floor of (high-low)/2 
+
     if (arr[mid + 1] - arr[mid] != diff) 
         return (arr[mid] + diff); 
   
