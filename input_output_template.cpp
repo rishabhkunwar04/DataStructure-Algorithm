@@ -6,6 +6,7 @@
 #define INF 199999999600000001
 #define MOD 1000000007
 #define endl '\n'
+const int mxN=1e6+5;
 
 using namespace std;
 
@@ -19,6 +20,7 @@ int main()
     cin>>t;
     while(t--)
     {
+    	    	
         
         cout<<endl;
 
