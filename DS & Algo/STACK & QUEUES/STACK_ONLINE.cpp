@@ -25,7 +25,7 @@ int main()
 
 //STACK implementation via linkedlist
 
-/*#include<iostream>
+#include<iostream>
 using namespace std;
 
 class node
@@ -112,10 +112,10 @@ int main()
 		s.pop();
 	}
 	return 0;
-}*/
+}
 //REVERSE OF STACK BY USING ANOTHER STACK
 
-/*#include<iostream>
+#include<iostream>
 #include<stack>
 using namespace std;
 
@@ -141,10 +141,10 @@ int main()
 		s1.pop();
 	}
 	return 0;
-}*/
+}
 //REVERSE STACK WITHOUT USING ANY OTHER DATA STRUCTURE
 
-/*#include<iostream>
+#include<iostream>
 #include<stack>
 using namespace std;
  
@@ -194,11 +194,10 @@ int main()
 	reverse(s);
 	print(s);
 	return 0;
-}*/
+}
 
 //IMPLEMETING STACK USING TWO QUEUE
-
-/*#include<iostream>
+#include<iostream>
 #include<queue>
 using namespace std;
 
@@ -311,10 +310,10 @@ int main()
 		s.pop();
 	}
 	return 0;
-}*/
+}
 //EVALUATION OF POSTFIX NO
 
-/*#include<iostream>
+#include<iostream>
 #include<stack>
 using namespace std;
 
@@ -374,7 +373,7 @@ int main()
 	    n--;
 	}
 	return 0;
-}*/
+}
 //NEXT LARGER ELEMENT
 
 #include <iostream>

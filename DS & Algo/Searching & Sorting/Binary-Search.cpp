@@ -442,6 +442,114 @@ int main()
 }  */
 
 
+//DUPLICATE NUMBER ****
+    
+    // Using Binary search
+    // TC: O(nlogn), SC: O(1)
+    int binarySearchSolution(vector<int>& nums) {
+        // The idea is that it is known that there is a duplicate, so 
+        // we can use pigeon hole concept here. We do binary search on the search
+        // space of [1:N], then count the number of elements <= middle. If the 
+        // duplicate is on the left side, then count should be more than mid,
+        // else it is on the right side. Initially search space is [1: N], then
+        // each time narrow down the search space
+        int left = 1, right = nums.size() - 1;
+        while(left < right) {
+            int mid = left + (right - left) / 2;
+            
+            // count the number of elements smaller/ equal than middle element
+            int c = 0;
+            for(const int& el: nums)
+                if(el <= mid)
+                    ++c;
+            
+            if(c > mid)
+                right = mid;
+            else
+                left = mid + 1;
+        }
+        return left;
+    }
+    
+
+        // Using Floyd Cycle detection
+    // TC: O(N), SC: O(1)
+    
+    /*
+        Assume each nums value as an address just like in linked list node addr.
+        Then since there is one number whith duplicates, that means there are multiple instances
+        of the same address, so it is a cycle just like in linked list. Do the same thing
+        as in linked list.
+    */
+    int floydSolution(vector<int>& nums) {
+        // Each index is taken 1 based, as if it is zero based, then
+        // for nums[2] = 3, if we goto nums[nums[2] - 1], it is again nums[2]
+        // infinite loop
+        int hare = nums[0], tortoise = nums[0];
+        
+        do {
+            hare = nums[nums[hare]];
+            tortoise = nums[tortoise];
+        } while(hare != tortoise);
+        
+        // to find the starting of cycle, make tortoise to start from begining
+        tortoise = nums[0];
+        while(hare != tortoise) {
+            hare = nums[hare];
+            tortoise = nums[tortoise];
+        }
+        
+        return hare;
+    }
+
+
+//FIND MINM IN ROTATED SORTED ARRAY
+    class Solution {
+  public int findMin(int[] nums) {
+    // If the list has just one element then return that element.
+    if (nums.length == 1) {
+      return nums[0];
+    }
+
+    // initializing left and right pointers.
+    int left = 0, right = nums.length - 1;
+
+    // if the last element is greater than the first element then there is no rotation.
+    // e.g. 1 < 2 < 3 < 4 < 5 < 7. Already sorted array.
+    // Hence the smallest element is first element. A[0]
+    if (nums[right] > nums[0]) {
+      return nums[0];
+    }
+    
+    // Binary search way
+    while (right >= left) {
+      // Find the mid element
+      int mid = left + (right - left) / 2;
+
+      // if the mid element is greater than its next element then mid+1 element is the smallest
+      // This point would be the point of change. From higher to lower value.
+      if (nums[mid] > nums[mid + 1]) {
+        return nums[mid + 1];
+      }
+
+      // if the mid element is lesser than its previous element then mid element is the smallest
+      if (nums[mid - 1] > nums[mid]) {
+        return nums[mid];
+      }
+
+      // if the mid elements value is greater than the 0th element this means
+      // the least value is still somewhere to the right as we are still dealing with elements
+      // greater than nums[0]
+      if (nums[mid] > nums[0]) {
+        left = mid + 1;
+      } else {
+        // if nums[0] is greater than the mid value then this means the smallest value is somewhere to
+        // the left
+        right = mid - 1;
+      }
+    }
+    return -1;
+  }
 
 
 

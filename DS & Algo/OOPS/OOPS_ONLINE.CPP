@@ -587,7 +587,7 @@ class Box{
         return (long long)l*b*h;
     }
     
-    w bool operator < ( Box&A,Box& B){
+    bool operator < ( Box&A,Box& B){
         if( (A.l < B.l) || ((A.b < B.b) && (A.l == B.l)) || ((A.h < B.h) && (A.l == B.l) && (A.b == B.b)) ){
             return true;
         }else{

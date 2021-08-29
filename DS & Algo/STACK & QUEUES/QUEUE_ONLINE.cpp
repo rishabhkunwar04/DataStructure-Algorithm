@@ -1,6 +1,6 @@
 //IMPLEMENTATION OF QUEUE
 
-/*#include<iostream>
+#include<iostream>
 using namespace std;
 template<typename T>
 class queue
@@ -64,7 +64,7 @@ int main()
 		cout<<q.front()<<" ";
 	}
 		return 0;
-}*/
+}
 
 //inbuilt queue
 

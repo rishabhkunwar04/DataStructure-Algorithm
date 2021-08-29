@@ -69,19 +69,6 @@ void preoder(node* root)
 	preoder(root->right);
 }
 
-void preorder(node* root)
-{
-	if(root==NULL)
-	{
-		return;
-	}
-
-	cout<<root->data<<" ";
-	preorder(root->left);
-	preorder(root->right);
-}
-
-
 void inorder(node* root)
 {
 	if(root==NULL)
@@ -518,6 +505,81 @@ int main()
 //		}	
 	return 0;
 }
+
+//VERTICAL ORDER
+
+ // ****BINARY TREE******
+
+#include<bits/stdc++.h>
+#include<map>
+#include<queue>
+using namespace std;
+ 
+class node
+{
+public:
+  int data;
+  node* left;
+  node* right;
+
+  node(int d)
+  {
+    data=d;
+    left=NULL;
+    right=NULL;
+  }
+};
+  
+node* createTree()
+{
+  int data;
+  cin>>data;
+
+  if(data==-1)
+  {
+    return NULL;
+  }
+
+  node* root=new node(data);
+  root->left=createTree();
+  root->right=createTree();
+  return root;
+}
+
+map<int,vector<int>>mp;
+void vertical_level(node* root,int cl)
+{
+ if(root==NULL)return;
+ mp[cl].push_back(root->data);
+ vertical_level(root->left,cl-1);
+  vertical_level(root->right,cl+1);
+
+}
+
+
+
+int main()
+{
+
+  node* root=createTree();
+  vertical_level(root,0);
+  for(auto x:mp)
+{
+  vector<int>v=x.second;
+  cout<<x.first<<":->";
+  for(int i=0;i<v.size();i++)
+  {
+    cout<<v[i]<<" ";
+  }
+  cout<<endl;
+}
+  
+
+  cout<<endl;
+  return 0;
+}
+
+//i/p;->  1 2 3 -1 -1 4 5 -1 -1 -1 6 7 -1 8 -1 -1 9 -1 -1
 
 
 

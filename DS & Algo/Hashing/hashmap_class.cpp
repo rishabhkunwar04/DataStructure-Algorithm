@@ -166,7 +166,7 @@ int main()
 	h.insert("apple",200);
 	h.insert("orange",300);
 	h.insert("orange",300);
-	h["kiwi"]=400; //integer typa ka bucket return hoke aayega then usme 400 daal rahe
+	h["kiwi"]=400; //integer type ka bucket return hoke aayega then usme 400 daal rahe
 	h["orange"]=500; //insertion , updation
 	h.print();
 	return 0;

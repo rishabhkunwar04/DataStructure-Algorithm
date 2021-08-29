@@ -1,5 +1,5 @@
-/**BUBBLE SORT**/
-/*#include<iostream>
+//*BUBBLE SORT**
+#include<iostream>
 using namespace std;
 void bubblesort(int *a,int n,int i)  //meathod 1
 {
@@ -31,10 +31,10 @@ int main()
 		cout<<a[i]<<" ";
 	}
 	return 0;
-}*/
+}
 
 
-/*
+
 void bubblesort(int *a,int n,int i,int j)    //meathod 2
 {
 	if(i==n-1)
@@ -67,11 +67,11 @@ int main()
 		cout<<a[i]<<" ";
 	}
 	return 0;
-}*/
+}
 
 //**SELECTION SORT**/
 
-/*void selection_sort (int A[ ], int n) {
+void selection_sort (int A[ ], int n) {
         // temporary variable to store the position of minimum element
 
         int minimum;        
@@ -92,9 +92,10 @@ int main()
           // putting minimum element on its proper position.
           swap ( A[ minimum ], A[ i ]) ; 
         }
-   }*/
+   }
 
-/*
+//INSERTION SORT
+
 void insertion_sort ( int A[ ] , int n) 
 {
      for( int i = 0 ;i < n ; i++ ) {
@@ -118,10 +119,9 @@ void insertion_sort ( int A[ ] , int n)
            A[ j ] = temp;       
      }  
 }
-*/
+
 
 //**MERGE SORT***/
-/*
 #include<iostream>
 using namespace std;
 void merge(int *a,int *x,int *y,int s,int e)
@@ -200,12 +200,12 @@ int main()
 	}
 	return 0;
 }
-*/
+
 
 
 /*****QUICK SORT***/
 
-/*
+
 int partition ( int A[],int start ,int end) {
     int i = start + 1;
     int piv = A[start] ;            //make the first element as pivot element.
@@ -232,9 +232,23 @@ void quick_sort ( int A[ ] ,int start , int end ) {
    }
 }
 
+/*****RANDOMISED QUICK SORT*****/
 
-Let’s see the randomized version of the partition function :
+int partition ( int A[],int start ,int end) {
+    int i = start + 1;
+    int piv = A[start] ;            //make the first element as pivot element.
+    for(int j =start + 1; j <= end ; j++ )  {
+    /*rearrange the array by putting elements which are less than pivot
+       on one side and which are greater that on other. */
 
+          if ( A[ j ] < piv) {
+                 swap (A[ i ],A [ j ]);
+            i += 1;
+        }
+   }
+   swap ( A[ start ] ,A[ i-1 ] ) ;  //put the pivot element in its proper place.
+   return i-1;                      //return the position of the pivot
+}
 int rand_partition ( int A[ ] , int start , int end ) {
     //chooses position of pivot randomly by using rand() function .
      int random = start + rand( )%(end-start +1 ) ;
@@ -243,11 +257,20 @@ int rand_partition ( int A[ ] , int start , int end ) {
      return partition(A,start ,end) ;       //call the above partition function
 }
 
-*/
+void quick_sort ( int A[ ] ,int start , int end ) {
+   if( start < end ) {
+        //stores the position of pivot element
+         int piv_pos = rand_partition (A,start , end ) ;     
+         quick_sort (A,start , piv_pos -1);    //sorts the left side of pivot.
+         quick_sort ( A,piv_pos +1 , end) ; //sorts the right side of pivot.
+   }
+}
+
+
 
 /**COUNTING SORT***/
 
-/*
+
 void counting_sort(int A[], int Aux[], int sortedA[], int N) {
 
     // First, find the maximum value in A[]
@@ -280,10 +303,10 @@ void counting_sort(int A[], int Aux[], int sortedA[], int N) {
     }
 }
 
-*/
+
 
 /*******RADIX SORT***/
-/*
+
 void countsort(int arr[],int n,int place)
 {
         int i,freq[range]={0};         //range for integers is 10 as digits range from 0-9
@@ -311,9 +334,9 @@ void radixsort(ll arr[],int n,int maxx)            //maxx is the maximum element
         }
 }
 
-*/
+
 /******BUCKET SORT***/
-/*
+
 void bucketSort(float[] a,int n)
 {
     for(each floating integer 'x' in n)
@@ -324,5 +347,39 @@ void bucketSort(float[] a,int n)
     {
         sort(bucket);
     }
-}*/
+}
+
+//HYBRID SORT that exist in language library
+
+void mergeSort(int[] a, int L, int H) 
+
+{ 
+
+if(L >= H){ return; } 
+
+ 
+
+if(H-L < 200) 
+
+{ 
+
+insertionSort(a, L, H); 
+
+return; 
+
+} 
+
+ 
+
+int m = (L+H)/2; 
+
+ 
+
+mergeSort(a, L, m); 
+
+mergeSort(a, m+1, H); 
+
+mergeWithin(a, L, H, m); 
+
+} 
 

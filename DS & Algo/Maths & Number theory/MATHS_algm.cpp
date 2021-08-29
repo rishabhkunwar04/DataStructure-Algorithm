@@ -1,6 +1,6 @@
 //FACTORIAL OF VERY LARGE NO
 
-/*#include<iostream>
+#include<iostream>
 using namespace std;
 #define max 10000
 
@@ -39,10 +39,11 @@ int main()
 	cin>>n;
 	factorial(n);
 	return 0;
-}*/
+}
+
 //GCD EUCLID ALGM
 
-/*#include<iostream>
+#include<iostream>
 #include<climits>
 using namespace std;
 int gcd(int c,int d)
@@ -63,11 +64,11 @@ int main()
 	int d=max(a,b);
     cout<<gcd(c,d);
 	return 0;
-}*/
+}
 
 //EXTENDED EUCLID ALGM
 
-/*#include < iostream >
+#include < iostream >
 
 int d, x, y;
 void extendedEuclid(int A, int B) {
@@ -89,12 +90,12 @@ extendedEuclid(16, 10);
 cout << ”The GCD of 16 and 10 is ” << d << endl;
 cout << ”Coefficients x and y are ”<< x <<  “and  “ << y << endl;
 return 0;   
-}*/
+}
 
 
 //FAST EXPONENTIATION by bitmasking
 
-/*#include <bits/stdc++.h>
+#include <bits/stdc++.h>
 #define ll long long
 using namespace std;
 
@@ -126,11 +127,11 @@ int main()
     
     return 0;
 }
-*/
+
 
 //INCLUSION EXCLUSION PRINCIPAL
 
-/*#include <iostream>
+#include <iostream>
 using namespace std;
 
 //Inclusion-Exclusion Using Bitmasking
@@ -165,13 +166,13 @@ int main() {
 
 
     return 0;
-}*/
+}
 
 //divisible subarray(gfg)
 
 //prefix sum meathod
 
-/*#include <bits/stdc++.h> 
+#include <bits/stdc++.h> 
 using namespace std; 
 void CheckSubarray(int arr[], int N) 
 { 
@@ -213,7 +214,7 @@ int main()
     CheckSubarray(arr, N); 
   
     return 0; 
-} */
+} 
 
 //SEGMENTED SEIVE
 
@@ -333,7 +334,7 @@ int main()
 
 //FERMATS LITTLE THEOREM
 
-/*#include <bits/stdc++.h>
+#include <bits/stdc++.h>
 #define ___ ios_base::sync_with_stdio(false);cin.tie(NULL);
 #define ll long long
 #define ull unsigned long long
@@ -392,7 +393,7 @@ int main()
 
     return 0;
 }
-*/
+
 
 #include <bits/stdc++.h>
 #define ll long long

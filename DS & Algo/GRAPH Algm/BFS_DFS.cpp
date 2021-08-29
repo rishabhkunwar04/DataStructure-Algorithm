@@ -1,5 +1,4 @@
-
-
+/
 //IMPLEMENTATION OF A GRAPH OF VERTES AS INTEGER by ADJACENCY LIST
 
 #include<iostream>
@@ -205,7 +204,7 @@ public:
        cout<<"this graph has"<<component<<"components";
 
 	} 
-   //BFS //CYCLE DETECTION UNDIRECTED GRAPH
+   //BFS CYCLE DETECTION //UNDIRECTED GRAPH
 
 	bool iscyclic_bfs(T src)
 	{
@@ -243,7 +242,7 @@ public:
         return false;
 	}
 
-  // DFS //CYCLE DETECTION UNDIRECTED GRAPH
+  // DFS CYCLE DETECTION // UNDIRECTED GRAPH
 
   #include<bits/stdc++.h>
 using namespace std;
@@ -280,7 +279,7 @@ public:
   }
 };
 
-// { Driver Code Starts.
+
 int main(){
   int tc;
   cin >> tc;
@@ -301,9 +300,9 @@ int main(){
     else cout << "0\n";
   }
   return 0;
-}  // } Driver Code Ends
+} 
 
-//BFS //CYCLE DETECTION DIRECTED GRAPH 
+//BFS CYCLE DETECTION // DIRECTED GRAPH //khans algo concept used
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -370,7 +369,7 @@ int main()
 }
 
 
-	  //DFS //CYCLE DETECTION DIRECTED GRAPH  
+	  //DFS CYCLE DETECTION// DIRECTED GRAPH  
 
 
 	bool iscyclic_helper_dfs( T node,map<T,bool>&visited,map<T,bool>&instack)
@@ -455,6 +454,71 @@ int main()
         cout<<"notcyclic";
 	cout<<endl;
 	return 0;
+}
+
+
+//DFS CYCLE DETECTION //DIRECTED GRAPH //Striver graph series
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Solution {
+private:
+    bool checkCycle(int node, vector<int> adj[], int vis[], int dfsVis[]) {
+        vis[node] = 1; 
+        dfsVis[node] = 1; 
+        for(auto it : adj[node]) {
+            if(!vis[it]) {
+                if(checkCycle(it, adj, vis, dfsVis)) return true;
+            } else if(dfsVis[it]) {
+                return true; 
+            }
+        }
+        dfsVis[node] = 0; 
+        return false;
+    }
+public:
+  bool isCyclic(int N, vector<int> adj[]) {
+     int vis[N], dfsVis[N]; 
+     memset(vis, 0, sizeof vis); 
+     memset(dfsVis, 0, sizeof dfsVis); 
+     
+     for(int i = 0;i<N;i++) {
+         if(!vis[i]) {
+             // cout << i << endl; 
+             if(checkCycle(i, adj, vis, dfsVis)) {
+                 return true; 
+             }
+         }
+     }
+     return false; 
+  }
+};
+
+int main()
+{
+    
+    int t;
+    cin >> t;
+    while(t--)
+    {
+      int V, E;
+      cin >> V >> E;
+
+      vector<int> adj[V];
+
+      for(int i = 0; i < E; i++)
+      {
+        int u, v;
+        cin >> u >> v;
+        adj[u].push_back(v);
+      }
+
+      Solution obj;
+      cout << obj.isCyclic(V, adj) << "\n";
+    }
+
+    return 0;
 }
 
 

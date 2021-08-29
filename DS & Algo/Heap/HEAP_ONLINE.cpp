@@ -107,10 +107,12 @@ class maxheap
 
  public:
  vector<int>v;
+
  maxheap() //constructor
  {
  	v.push_back(-1);
-	 }	
+ }
+
 	void push(int d)  //insertion in arry of maxheap
 	{
 		v.push_back(d);
