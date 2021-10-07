@@ -1,6 +1,4 @@
 
-
-/*
 #include<iostram>
 using namespace std;
 
@@ -55,7 +53,7 @@ public:
         cout<<"Grrrr...starting the car "<<name<<endl;
     }
     void setPrice(int p){
-        if(p>1000){
+        if(p>1000){ //only positive value accepted
             price  = p;
         }
         else{
@@ -92,12 +90,6 @@ int main() {
     
     D.print();
     E.print();
-    
-    
-    
-    
-    
-   
  
     return 0;
     

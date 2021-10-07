@@ -83,6 +83,8 @@ public:
 		//to handle the uniqueness of the bucket
 		node* temp=bucket[index];
 		int flag=0;
+
+		// check if key exist or not
 		while(temp)
 		{
 			if(temp->key==key)
@@ -93,7 +95,7 @@ public:
 			temp=temp->next;
 		}
 
-		if(flag!=1)
+		if(flag!=1)//if key not exist
 		{
 			//insertion at front approach is used here
 			node* n=new node(key,value);

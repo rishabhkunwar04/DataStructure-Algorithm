@@ -392,7 +392,7 @@ N-QUEEN
 	}
 	k=i;
 	l=j;
-	while(k>=00&&l<n) //right diagonal checking
+	while(k>=0&&l<n) //right diagonal checking
 	{
 		if(sol[k][l])
 		{
@@ -418,6 +418,8 @@ bool nqueen(int n,int i,int sol[][10])
 		}
 		return true;
 	}
+
+ 
 	for(int j=0;j<n;j++)
 	{
 	  if(issafetoput(sol,i,j,n))

@@ -1,6 +1,5 @@
 #include<bits/stdc++.h>
-//#include<ext/pb_ds/assoc_container.hpp>
-//using namespace __gnu_pbds;
+
 using namespace std;
 #define ll 				long long int
 #define ld				long double
@@ -32,7 +31,6 @@ void err(istream_iterator<string> it, T a, Args... args) {
 	cout << *it << " = " << a << endl;
 	err(++it, args...);
 }
-//typedef tree<ll, null_type, less<ll>, rb_tree_tag, tree_order_statistics_node_update> pbds;
 
 void file_i_o()
 {

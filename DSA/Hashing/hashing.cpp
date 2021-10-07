@@ -2,7 +2,7 @@
 
 //hash map types->unordered_map(unsorted wrt to key)+ map(sorted wrt to key not by value) 
 
-/*#include<iostream>
+#include<iostream>
 #include<unordered_map>// header file for unordered map
 using namespace std;    // #include<map> header file for map
 
@@ -41,13 +41,13 @@ int main()
         cout<<"not found";
 
 	return 0;
-}*/
+}
 
 
 
 //SUM PAIRS
 
-/*#include<iostream>
+#include<iostream>
 #include<unordered_set>
 using namespace std;
 
@@ -72,7 +72,7 @@ int main(){
    int sum=10;
    find_pair(arr,n,sum);
 return 0;
-}*/
+}
 
 
 
@@ -111,7 +111,7 @@ int main()
     most_freq(arr,n);
 
     return 0;
-}/*
+}
 
   Q Find missing and repeating number 
 

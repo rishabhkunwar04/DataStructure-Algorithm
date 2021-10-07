@@ -1,4 +1,4 @@
-/*
+
  // ****BINARY TREE******
 
 #include<iostream>
@@ -20,26 +20,7 @@ public:
 	}
 };
 
- class Pair
- {
- 	public:
- 		int height;
- 		int diameter;
- };
-  Pair fastdiameter(node* root)
-  {
-  	Pair p;
-  	if(root==NULL)
-  	{
-  		p.height=p.diameter=0;
-  		return p;
-	  }
-	  Pair left=fastdiameter(root->left);
-	  Pair right=fastdiameter(root->right);
-	  p.height=max(left.height,right.height)+1;
-	  p.diameter=max(left.height+right.height,max(left.diameter,right.diameter));
-	  return p;
-  }
+
 
 node* createTree()
 {
@@ -136,6 +117,26 @@ int diameter(node* root)
 	return ans;
 
 }
+ class Pair
+ {
+ 	public:
+ 		int height;
+ 		int diameter;
+ };
+  Pair fastdiameter(node* root)
+  {
+  	Pair p;
+  	if(root==NULL)
+  	{
+  		p.height=p.diameter=0;
+  		return p;
+	  }
+	  Pair left=fastdiameter(root->left);
+	  Pair right=fastdiameter(root->right);
+	  p.height=max(left.height,right.height)+1;
+	  p.diameter=max(left.height+right.height,max(left.diameter,right.diameter));
+	  return p;
+  }
 
 //****** LEVEL ORDER TRAVERSAL OR BFS ******
 
@@ -243,7 +244,7 @@ int main()
 
 	cout<<endl;
 	return 0;
-}*/
+}
 
 
 
@@ -417,7 +418,7 @@ Pair isBalanced(node* root)
 
 //***** FLATTENING A TREE INTO LINKEDLIST ******
 
-/*class linkedlist
+class linkedlist
 {
 	public:
 	linkedlist* head;
@@ -468,7 +469,8 @@ linkedlist flattening(node* root)
     return l;
 		
 	}
-}*/
+}
+
 
 
 

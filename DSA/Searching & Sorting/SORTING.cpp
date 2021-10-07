@@ -100,7 +100,7 @@ void insertion_sort ( int A[ ] , int n)
 {
      for( int i = 0 ;i < n ; i++ ) {
     //storing current element whose left side is checked for its 
-             correct position .
+             //correct position .
 
       int temp = A[ i ];    
       int j = i;
@@ -205,66 +205,104 @@ int main()
 
 /*****QUICK SORT***/
 
-
-int partition ( int A[],int start ,int end) {
-    int i = start + 1;
-    int piv = A[start] ;            //make the first element as pivot element.
-    for(int j =start + 1; j <= end ; j++ )  {
-    rearrange the array by putting elements which are less than pivot
-       on one side and which are greater that on other. 
-
-          if ( A[ j ] < piv) {
-                 swap (A[ i ],A [ j ]);
-            i += 1;
+   int partition(vector<int>& nums,int s,int e)
+    {
+        int random=s+rand()%(e-s+1); //randomised quick sort
+         
+        swap(nums[random],nums[e]);
+        int x=nums[e];
+          
+        int i=s-1;
+        for(int j=s;j<=e-1;j++)
+        {
+            if(nums[j]<=x)
+            {
+                i++;
+                swap(nums[i],nums[j]);
+              
+            }
         }
-   }
-   swap ( A[ start ] ,A[ i-1 ] ) ;  //put the pivot element in its proper place.
-   return i-1;                      //return the position of the pivot
-}
+        swap(nums[i+1],nums[e]);
+        return i+1;
+    }
 
-
-void quick_sort ( int A[ ] ,int start , int end ) {
-   if( start < end ) {
-        //stores the position of pivot element
-         int piv_pos = partition (A,start , end ) ;     
-         quick_sort (A,start , piv_pos -1);    //sorts the left side of pivot.
-         quick_sort ( A,piv_pos +1 , end) ; //sorts the right side of pivot.
-   }
-}
-
-/*****RANDOMISED QUICK SORT*****/
-
-int partition ( int A[],int start ,int end) {
-    int i = start + 1;
-    int piv = A[start] ;            //make the first element as pivot element.
-    for(int j =start + 1; j <= end ; j++ )  {
-    /*rearrange the array by putting elements which are less than pivot
-       on one side and which are greater that on other. */
-
-          if ( A[ j ] < piv) {
-                 swap (A[ i ],A [ j ]);
-            i += 1;
+   void quicksort(vector<int>& nums,int s,int e)
+    {
+        if(s<e)//s==e stopping condn
+        {
+            int p=partition(nums,s,e);
+            quicksort(nums,s,p-1);
+            quicksort(nums,p+1,e);
         }
-   }
-   swap ( A[ start ] ,A[ i-1 ] ) ;  //put the pivot element in its proper place.
-   return i-1;                      //return the position of the pivot
-}
-int rand_partition ( int A[ ] , int start , int end ) {
-    //chooses position of pivot randomly by using rand() function .
-     int random = start + rand( )%(end-start +1 ) ;
+    }
 
-      swap ( A[random] , A[start]) ;        //swap pivot with 1st element.
-     return partition(A,start ,end) ;       //call the above partition function
-}
+   vector<int> sortArray(vector<int>& nums) {
+      //quick sort
+        quicksort(nums,0,nums.size()-1);
+        return nums;
+            
+        
+    }
 
-void quick_sort ( int A[ ] ,int start , int end ) {
-   if( start < end ) {
-        //stores the position of pivot element
-         int piv_pos = rand_partition (A,start , end ) ;     
-         quick_sort (A,start , piv_pos -1);    //sorts the left side of pivot.
-         quick_sort ( A,piv_pos +1 , end) ; //sorts the right side of pivot.
-   }
-}
+
+
+    //HEAP SORT
+   /* For zero-based arrays, for a certain node x:
+
+its parent floor( (x - 1) / 2 )
+its left child 2x + 1
+its right child 2x + 2
+The index of the last non-leaf node of a n-sized heap is floor( n / 2 ) - 1.*/
+
+
+
+        void maxHeapify(vector<int>& nums,int p,int n)
+    {
+        int left=2*p+1;
+        int right=2*p+2;
+        int maxm=p;
+        if(left<n && nums[maxm]<nums[left]){
+            maxm=left;
+        }
+         if(right<n && nums[maxm]<nums[right]){
+            maxm=right;
+        }
+        if(maxm!=p)
+        {
+        swap(nums[maxm],nums[p]);
+        maxHeapify(nums,maxm,n);
+        }
+    }
+    
+    void buildHeap(vector<int>& nums,int n)//max heap
+    {
+        for(int i=floor(n/2)-1;i>=0;i--) // from non leaf node  down to parent node
+        {
+            maxHeapify(nums,i,n);
+        }
+    }
+    
+    void heapSort(vector<int>& nums,int n)
+    {
+        buildHeap(nums,n);
+        for(int i=n-1;i>=0;i--)
+        {
+            swap(nums[0],nums[i]);
+            n--;
+            maxHeapify(nums,0,n);
+        }
+    }
+    
+    
+    vector<int> sortArray(vector<int>& nums) {
+      
+        heapSort(nums,nums.size());
+       return nums;
+     }
+
+
+ 
+ 
 
 
 

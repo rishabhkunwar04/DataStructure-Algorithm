@@ -1,6 +1,6 @@
-//MAX HEAP AND MIN HEAP
+// MIN HEAP
 
-/*#include<iostream>
+#include<iostream>
 #include<vector>
 using namespace std;
 class minheap
@@ -76,10 +76,10 @@ int main()
 	}
 	
 	return 0;
-}*/
+}
 //MAX HEAP
 
-/*#include<iostream>
+#include<iostream>
 #include<vector>
 using namespace std;
 
@@ -162,6 +162,9 @@ int main()
 	}
 	return 0;
 }
+
+
+
  // STL FOR MAX HEAP
 
 /*#include<iostream>
