@@ -11,8 +11,9 @@ void selectionsort(int a[1000000],int n)
 			{
 				min=j;
 			}
-			swap(a[i],a[min]);
+			
 		}
+		swap(a[i],a[min]);
 		
 	}
 	return;

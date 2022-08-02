@@ -156,6 +156,19 @@ vector <int> bottomView(Node *root)
    
    return v;
 }
+// 2nd recursion method for bottom view
+void bottom_fun(Node* root,int cl,  map<int,int>)
+{
+    if(root==NULL)return;
+    
+     mp[cl]=root->data; //same verticle line pe baar baar overwrite hoga to sabse last wala elemt at last me write hoga waha
+
+    bottom_fun(root->left,depth+1,cl-1,mp);
+    bottom_fun(root->right,depth+1,cl+1,mp);
+    
+  
+    
+}
 
 //TOP VIEW recursion
 

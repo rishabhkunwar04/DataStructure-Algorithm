@@ -40,7 +40,7 @@
 // {  
 //    int x=5;  
 //     public:  
-//     void display()  
+//     virtual void display()  
 //     {  
 //         std::cout << "Value of x is : " << x<<std::endl;  
 //     }  

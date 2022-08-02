@@ -167,7 +167,7 @@ int main()
 
  // STL FOR MAX HEAP
 
-/*#include<iostream>
+#include<iostream>
 #include<queue>    //header file for inbuilt heap function
 using namespace std;                        
 int main()
@@ -185,11 +185,11 @@ int main()
 		pq.pop();
 	}
 	return 0;
-}*/
+}
 
 //STL FOR MIN HEAP
 
-/*#include<iostream>
+#include<iostream>
 #include<queue>//header file for inbuilt heap function
 using namespace std;
 
@@ -216,11 +216,11 @@ int main()
 		pq.pop();
 	}
 	return 0;
-}*/
+}
 
 // Another STL meathod FOR MIN HEAP
 
-/*#include<iostream>
+#include<iostream>
 #include<queue>//header file for inbuilt heap function
 using namespace std;
                       
@@ -239,12 +239,12 @@ int main()
 		pq.pop();
 	}
 	return 0;
-}*/
+}
 
 
 // when -1 comes print th3 max 3 no
 
-/*#include<iostream>
+#include<iostream>
 #include<queue>
 using namespace std;
 
@@ -301,76 +301,11 @@ int main()
    }
 	
 	return 0;
-}*/
-//FUNCTOR 
-
-/*#include <iostream>
-#include<queue>
-#include<vector>
-#include<functional> //header file to use functors
-using namespace std;
-
-class Car{
-  public:
-    int x;
-    int y;
-    int id;
-    
-    Car(int id,int x,int y){
-        this->id = id;
-        this->x = x;
-        this->y = y;
-    }
-    int dist(){
-        return x*x + y*y;
-    }
-    void print(){
-        cout<<"ID : "<<id;
-        cout<<"Location : "<<x<<", "<<y<<endl;
-    }
-};
-
-//Functor - Functional Objects
-//
-class CarCompare{
-  public:
-    //Method to overload () operator
-    bool operator()(Car a,Car b){
-        //cout<<"Comparing "<<a <<" and "<<b<<endl;
-        return a.dist() > b.dist();
-    }
-    
-};
+}
 
 
-int main() {
-    
-    
-    //priority_queue<int> pq_max;
-    priority_queue<Car,vector<Car>,CarCompare> pq;
-    
-    int x[10] = {5,6,17,18,9,11,0,3};
-    int y[10] = {1,-2,8,9,10,91,1,2};
-    
-    
-    //Insert these in q 
-    for(int i=0;i<8;i++){
-        Car c(i,x[i],y[i]);
-        pq.push(c);
-    }
-    
-    //Heap - Max 
-    while(!pq.empty()){
-        Car p = pq.top();
-        p.print();
-        pq.pop();
-    }
-    
-    
-    return 0;
-}*/
 
-/*//MEGE K SORTED ARRAY
+//MEGE K SORTED ARRAY
 
 // your task is tocomplete this function
 // function should return an pointer to output array int*
@@ -402,10 +337,10 @@ int *mergeKArrays(int arr[][N], int k)
     
     
     return array;
-}*/
+}
 
 //MERGE K SORTED ARRAY
-/*struct pq_ele
+struct pq_ele
 {
     int ele; int i; int j;
     pq_ele(int a, int b, int c) : ele(a), i(b), j(c) {}
@@ -434,11 +369,10 @@ int *mergeKArrays(int arr[][N], int k)
     }
     
     return res;
-}*/
+}
 
 //KTH LARGEST ELEMENT IN STREAM
-
-/*#include<iostream>
+#include<iostream>
 #include<queue>
 #include<vector>
 using namespace std;
@@ -490,11 +424,10 @@ int main()
     }
     return 0;
     
-}*/
+}
 
 // MEDIAN OF RUNNING STREAM
-
-/*#include<iostream>
+#include<iostream>
 #include<vector>
 #include<queue>
 using namespace std;
@@ -536,26 +469,5 @@ int main() {
 	    
 	}
 	return 0;
-}*/
-
-//**** PRIORITY QUEUEUE ********////
-#include <bits/stdc++.h>
-  
-using namespace std;
-  
-// Driver program to test methods of graph class
-int main()
-{
-    // By default a max heap is created ordered
-    // by first element of pair.
-    priority_queue<pair<int, int> > pq;
-  
-    pq.push(make_pair(10, 200));
-    pq.push(make_pair(20, 100));
-    pq.push(make_pair(15, 400));
-  
-    pair<int, int> top = pq.top();
-    cout << top.first << " " << top.second;
-    return 0;
 }
- 
+

@@ -17,12 +17,12 @@ void fizzBuzz(int n) {
 }
 
 //2.
-clude <bits/stdc++.h>
+include <bits/stdc++.h>
 
 using namespace std;
 
 
-void fizzBuzz(int n) {
+void solve(int n) {
   for(int i=1;i<=n;i++)
   {
      
@@ -32,6 +32,12 @@ void fizzBuzz(int n) {
   if(i%3!=0 && i%5!=0) str+=to_string(i);  
   cout<<str<<'\n';
     
+  }
+  int main()
+  {
+    int n;cin>>n;
+    solve(n);
+    return 0;
   }
 
 
