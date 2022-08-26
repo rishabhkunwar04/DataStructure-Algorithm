@@ -48,7 +48,7 @@ void reverse(node* &head)
          prev=curr;
          curr=n;
     }
-    head=prev; 
+    head=prev; //updated
 
 
 }
@@ -58,7 +58,14 @@ void add(node* &head1,node* &head2)
     reverse(head1);
     reverse(head2);
 
-    
+    // print(head1);
+    // cout<<endl;
+    // print(head2);
+    // cout<<endl;
+
+   
+
+        
        node *nhead= new node(0);
         node *temp=nhead;
 
@@ -80,38 +87,27 @@ void add(node* &head1,node* &head2)
             head1=head1->next;
             head2=head2->next;
         }
-      
+        if(carry>0){
+           node *n= new node(carry);
+            temp->next=n;
+            temp=temp->next;
+        }
+       
 
         while(head1!=NULL)
         {
-            int sum=head1->data+carry;
-
-             carry = sum / 10;
-             int rem= sum % 10;
-            
-            node *n= new node(rem);
+           node *n= new node(head1->data);
             temp->next=n;
             temp=temp->next; 
             head1=head1->next;
         }
         while(head2!=NULL)
         {
-           int sum=head2->data+carry;
-
-             carry = sum / 10;
-             int rem= sum % 10;
-            
-            node *n= new node(rem);
+           node *n= new node(head2->data);
             temp->next=n;
             temp=temp->next; 
             head2=head2->next;
         }
-          if(carry>0){
-           node *n= new node(carry);
-            temp->next=n;
-            temp=temp->next;
-        }
-       
 
 
     reverse(nhead->next);

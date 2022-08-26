@@ -8,7 +8,7 @@
         int pivot=nums[e];
           
         int i=s-1;
-        for(int j=s;j<=e-1;j++)
+        for(int j=s;j<=e-1;j++) //we will only traverse till 2nd last element because last element is pivot element
         {
             if(nums[j]<=pivot)
             {

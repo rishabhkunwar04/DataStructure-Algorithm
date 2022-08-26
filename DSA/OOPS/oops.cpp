@@ -1,35 +1,75 @@
 ////operator overloading
 
-// #include <iostream>  
-// using namespace std;  
-// class A  
-// {  
-    
-//     int x;  
-//       public:  
-//       A(){}  
-//     A(int i)  
-//     {  
-//        x=i;  
-//     }  
-//     void operator+(A);  
-//     void display();  
-// };  
+#include<iostream>
+using namespace std;
+
+class Complex {
+private:
+	int real, imag;
+public:
+	Complex(int r = 0, int i = 0) {real = r; imag = i;}
+	
+	// This is automatically called when '+' is used with
+	// between two Complex objects
+	Complex operator + (Complex const &obj) {
+		Complex res;
+		res.real = real + obj.real;
+		res.imag = imag + obj.imag;
+		return res;
+	}
+	void print() { cout << real << " + i" << imag << '\n'; }
+};
+
+int main()
+{
+	Complex c1(10, 5), c2(2, 4);
+	Complex c3 = c1 + c2;
+	c3.print();
+}
+
+//ABSTRACT CLASS IMPORTANT CASES
+#include <bits/stdc++.h>
+using namespace std;
+ class Shape    
+{    
+    public:   
+    virtual void draw()=0;  
+    void solve(){
+        cout<<"parent yes"<<endl;
+    }
+     void solve1(){
+        cout<<" parent no"<<endl;;
+    }
+};    
+ class Rectangle : Shape    
+{    
+    public:  
+     void draw()    
+    {    
+        cout <<"drawing rectangle..." <<endl;    
+    }  
+      void solve(){
+        cout<<"child yes"<<endl;
+    }
+};  
+
+int main()
+{
+    // Rectangle s;
+    // s.draw();  // for creating object of child class pure virtual function shhould be implementrd in child class
+    // s.solve();
+  //  s.solve1 ; without its implemention in child class we cant access this abstract function
   
-// void A :: operator+(A a)  
-// {  
-     
-//     int m = x+a.x;  
-//     cout<<"The result of the addition of two objects is : "<<m;  
+  // Shape *s=new Rectangle();  //this will also give error
+  // s->draw();
   
-// }  
-// int main()  
-// {  
-//     A a1(5);  
-//     A a2(4);  
-//     a1+a2;  
-//     return 0;  
-// }
+  // Shape s; // will give error
+ /*If a class is declared abstract, it cannot be instantiated.
+ To use an abstract class, you have to inherit it from another class, provide implementations to the abstract methods in it.*/
+ 
+
+    return 0;
+}
 
 
 //virtual function

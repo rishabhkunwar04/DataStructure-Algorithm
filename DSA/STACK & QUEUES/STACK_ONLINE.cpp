@@ -1,5 +1,27 @@
+/*#include<iostream>
+#include<stack>
+using namespace std;
 
-+
+int main()
+{
+	// stack<int>s;
+	// for(int i=0;i<9;i++)
+	// {
+	// 	s.push(i);
+	// }
+
+	stack<char>s;
+	s.push(char(65+5));
+	//s.push('B');
+	s.push(char(97));
+
+	while(!s.empty())
+	{
+		cout<<s.top()<<" ";
+		s.pop();
+	}
+	return 0;
+}*/
 
 //STACK implementation via linkedlist
 
@@ -91,7 +113,35 @@ int main()
 	}
 	return 0;
 }
+//REVERSE OF STACK BY USING ANOTHER STACK
 
+#include<iostream>
+#include<stack>
+using namespace std;
+
+int main()
+{
+	stack<int>s;
+	stack<int>s1;
+	for(int i=1;i<=9;i++)
+	{
+		s.push(i);
+	}
+	for(int i=1;i<=9;i++)
+	{
+		int c=s.top();
+		s1.push(c);
+		cout<<s.top()<<" ";
+		s.pop();
+	}
+	cout<<endl<<"reverse =";
+	for(int i=1;i<=9;i++)
+	{
+		cout<<s1.top()<<" ";
+		s1.pop();
+	}
+	return 0;
+}
 //REVERSE STACK WITHOUT USING ANY OTHER DATA STRUCTURE
 
 #include<iostream>

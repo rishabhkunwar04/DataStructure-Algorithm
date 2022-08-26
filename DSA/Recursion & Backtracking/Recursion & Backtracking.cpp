@@ -241,8 +241,7 @@ int main()
 }*/
 
 //PHONEKEYPAD PROBLEM
-
-/*char ch[][10]={"","ABC","DEF","GHI","JKL","MNO","PQR","STU","UVW","XYZ"};
+char ch[][10]={"","ABC","DEF","GHI","JKL","MNO","PQR","STU","UVW","XYZ"};
 void keypad(char *in,char *out,int i,int j)
 {
 	if(in[i]=='\0')
@@ -265,7 +264,7 @@ int main()
 	cin>>in;
 	keypad(in,out,0,0);
 	return 0;
-}*/
+}
 
 //BUBBLESORT
 
@@ -366,11 +365,11 @@ int main()
 }
 
 
-/* BACKTRACKING 
 
-N-QUEEN
 
-/*bool issafetoput(int sol[][10],int i,int j,int n)
+ //N-QUEEN
+
+bool issafetoput(int sol[][10],int i,int j,int n)
 {
 	for(int k=0;k<n;k++)//for checking in same row and column
 	{
@@ -450,7 +449,7 @@ int main()
 
 //ELEPHANT WAYS
 
- /*#include<iostream>
+ #include<iostream>
 using namespace std;
 
 int elephantways(int i,int j)
@@ -481,11 +480,10 @@ int main()
 	cin>>i>>j;
 	cout<<elephantways(i,j)<<endl;
 	return 0;
-}*/
+}
 
 //GRID WAYS
-
-/*int grid(int i,int j)
+int grid(int i,int j)
 {
 	if(i==0 && j==0)
 	{
@@ -508,11 +506,11 @@ int main()
 	cin>>n>>m;
 	cout<<grid(n,m)<<endl;
 	return 0;
-}*/
+}
 
 //SUDOKU SOLVER
 
-/*bool isSafeToPut(int mat[9][9],int n,int i,int j,int no)
+bool isSafeToPut(int mat[9][9],int n,int i,int j,int no)
 {
    for(int k=0;k<n;k++)
    {
@@ -602,7 +600,7 @@ int main()
 }*/
 
  // KNIGHT MOVE Problem
-/*#include <iostream>
+#include <iostream>
 #include <iomanip>
 using namespace std;
 const int D = 8;
@@ -660,5 +658,5 @@ int main(){
 
     
 }
-*/
+
 

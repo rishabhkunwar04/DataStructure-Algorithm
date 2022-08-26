@@ -113,46 +113,7 @@ int main()
     return 0;
 }
 
-  Q Find missing and repeating number 
 
-using namespace std;
-#include <bits/stdc++.h>
-void solve(int arr[], int n){
-    int xor1=0;
-    for(int i=0;i<n;i++){
-        xor1^=arr[i];
-        xor1^=(i+1);
-    }
-    int missing=0;
-    int repeating=0;
-    xor1=(xor1)&(-xor1);
-    for(int i=0;i<n;i++){
-        if(xor1&arr[i]){
-            missing^=arr[i];
-        }
-        else
-        {
-            repeating^=arr[i];
-        }
-        if(xor1&(i+1)){
-            missing^=(i+1);
-        }
-        else
-        {
-            repeating^=(i+1);
-        }
-    }
-    cout<<"MISSING NO: "<<missing<<endl;
-    cout<<"REPEATING NO: "<<repeating<<endl;
-   
-}
-int main()
-{
-    int arr[]={8,1,3,2,7,6,4,6};
-    int n=8;
-    solve(arr,n);
-    return 0;
-}
 
 Q All elements are repeating 3 times except for 1 element which is repeating 1 time. Find that number 
 
@@ -196,8 +157,9 @@ int pow1(int x, unsigned int n)
 {
     int res=1;
     while(n){
-        if(n&1)
-            res=res*x;
+        if(n&1){
+        res=res*x;
+        }
         n=n>>1;
         x=x*x;
     }

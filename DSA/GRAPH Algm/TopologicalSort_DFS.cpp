@@ -72,7 +72,7 @@ int main()
 	return 0;
 }
 
-//striver Topological sort
+//striver
 #include <bits/stdc++.h>
 using namespace std;
 

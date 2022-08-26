@@ -202,6 +202,7 @@ class comparator
 	}
 		} ;                       
 int main()
+
 {
 	priority_queue<int,vector<int>,comparator>pq;
 	int a[]={20,48,99,13,10};
@@ -302,76 +303,77 @@ int main()
 	
 	return 0;
 }
+//FUNCTOR 
 
+#include <iostream>
+#include<queue>
+#include<vector>
+#include<functional> //header file to use functors
+using namespace std;
 
-
-//MEGE K SORTED ARRAY
-
-// your task is tocomplete this function
-// function should return an pointer to output array int*
-// of size k*k
-int *mergeKArrays(int arr[][N], int k)
-{
-    priority_queue <pair<int,int>, vector <pair<int,int>>, greater <pair<int,int>>> pq;
-
-    int *array=(int*)malloc(sizeof(int)*k*k);
-    int pos[k]={0};
-    for(int i=0;i<k;i++){
-        pq.push({arr[i][0],i});  //pushing the first element of every array
-    }
-    
-    int i=0;
-    for(int i=0;i<k*k;i++){
-        pair <int,int> p;
-        p=pq.top();
-        pq.pop();
-    
-        array[i]=p.first;
-    
-        pos[p.second]++;
-        int ind=pos[p.second];
-        if(ind<k)
-        pq.push({arr[p.second][ind],p.second});
-        
-    } 
-    
-    
-    return array;
-}
-
-//MERGE K SORTED ARRAY
-struct pq_ele
-{
-    int ele; int i; int j;
-    pq_ele(int a, int b, int c) : ele(a), i(b), j(c) {}
-};
-class Compare
-{
+class Car{
   public:
-    bool operator()(pq_ele & a, pq_ele & b)
-    { return a.ele > b.ele;}
+    int x;
+    int y;
+    int id;
+    
+    Car(int id,int x,int y){
+        this->id = id;
+        this->x = x;
+        this->y = y;
+    }
+    int dist(){
+        return x*x + y*y;
+    }
+    void print(){
+        cout<<"ID : "<<id;
+        cout<<"Location : "<<x<<", "<<y<<endl;
+    }
 };
 
-int *mergeKArrays(int arr[][N], int k)
-{
-    int index = 0;
-    int * res= new int[k*k];
-    priority_queue<pq_ele, vector<pq_ele>, Compare> pq;
-    for(int i=0; i<k; i++)
-        pq.push(pq_ele(arr[i][0], i, 1));
-    while(!pq.empty())
-    //while(index < k*)
-    {
-        pq_ele r = pq.top(); pq.pop();
-        res[index++] = r.ele;
-        if(r.j < k)
-            pq.push(pq_ele(arr[r.i][r.j], r.i, r.j+1));
+//Functor - Functional Objects
+//
+class CarCompare{
+  public:
+    //Method to overload () operator
+    bool operator()(Car a,Car b){
+        //cout<<"Comparing "<<a <<" and "<<b<<endl;
+        return a.dist() > b.dist();
     }
     
-    return res;
+};
+
+
+int main() {
+    
+    
+    //priority_queue<int> pq_max;
+    priority_queue<Car,vector<Car>,CarCompare> pq;
+    
+    int x[10] = {5,6,17,18,9,11,0,3};
+    int y[10] = {1,-2,8,9,10,91,1,2};
+    
+    
+    //Insert these in q 
+    for(int i=0;i<8;i++){
+        Car c(i,x[i],y[i]);
+        pq.push(c);
+    }
+    
+    //Heap - Max 
+    while(!pq.empty()){
+        Car p = pq.top();
+        p.print();
+        pq.pop();
+    }
+    
+    
+    return 0;
 }
+
 
 //KTH LARGEST ELEMENT IN STREAM
+
 #include<iostream>
 #include<queue>
 #include<vector>
@@ -427,6 +429,7 @@ int main()
 }
 
 // MEDIAN OF RUNNING STREAM
+
 #include<iostream>
 #include<vector>
 #include<queue>
@@ -471,3 +474,24 @@ int main() {
 	return 0;
 }
 
+//**** PRIORITY QUEUEUE ********////
+#include <bits/stdc++.h>
+  
+using namespace std;
+  
+// Driver program to test methods of graph class
+int main()
+{
+    // By default a max heap is created ordered
+    // by first element of pair.
+    priority_queue<pair<int, int> > pq;
+  
+    pq.push(make_pair(10, 200));
+    pq.push(make_pair(20, 100));
+    pq.push(make_pair(15, 400));
+  
+    pair<int, int> top = pq.top();
+    cout << top.first << " " << top.second;
+    return 0;
+}
+ 

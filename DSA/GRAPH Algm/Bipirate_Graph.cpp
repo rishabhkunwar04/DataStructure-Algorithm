@@ -1,4 +1,6 @@
-//GRAPH COLORING:no two adjacent node color should be same //
+//***GRAPH COLORING
+
+
 
 //USING BFS ALGORITHM
 

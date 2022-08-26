@@ -1,4 +1,4 @@
-
+/
 //IMPLEMENTATION OF A GRAPH OF VERTES AS INTEGER by ADJACENCY LIST
 
 #include<iostream>
@@ -246,6 +246,10 @@ public:
 
   #include<bits/stdc++.h>
 using namespace std;
+
+ // o- based indexing code
+
+
 class Solution {
 
 public:
@@ -331,7 +335,7 @@ public:
               }
           }
       }
-      if(cnt == N) return false;  //it means we have linear ordering(topo sort possible) so it will not be cyclic as we know topo sort is only possible for DAG
+      if(cnt == N) return false; 
       return true; 
   }
 };
@@ -365,8 +369,95 @@ int main()
 }
 
 
+	  //DFS CYCLE DETECTION// DIRECTED GRAPH  
 
-//DFS CYCLE DETECTION //DIRECTED GRAPH 
+
+	bool iscyclic_helper_dfs( T node,map<T,bool>&visited,map<T,bool>&instack)
+	{
+	   visited[node]=true;
+	   instack[node]=true;
+	    for(T neighbour:adjlist[node])
+        {
+
+            if(!visited[neighbour]&&iscyclic_helper_dfs(node,visited,instack)|| instack[neighbour])
+            {
+                return true;
+            }
+        }
+        instack[node]=false;
+        return false;
+
+	}
+
+	bool iscyclic_dfs(T src)
+	{
+	   map<T,bool>visited;
+	   map<T,bool>instack;
+
+        for(auto i:adjlist)
+        {
+            T node=i.first;
+            if(!visited[node])
+            {
+               bool cyclepresent=iscyclic_helper_dfs(node,visited,instack);
+               if(cyclepresent)
+               {
+
+                   return true;
+               }
+
+            }
+        }
+
+	}
+
+
+
+
+};
+
+int main()
+{
+
+	// graph<string>g;
+
+	graph<int>g;
+	// g.addEdge("modi","yogi",false);
+	// g.addEdge("modi","trump",false);
+	// g.addEdge("prabhu","modi",false);
+	// g.addEdge("trump","modi",false);
+	// g.addEdge("yogi","modi",false);
+	// g.addEdge("yogi","prabhu",false);
+	// g.addEdge("putin","trump",false);
+	// g.addEdge("putin","modi",false);
+	// g.addEdge("putin","pope");
+
+	g.addEdge(0,1);
+	g.addEdge(0,4);
+	g.addEdge(1,2);
+	g.addEdge(2,3);
+	g.addEdge(2,4);
+	g.addEdge(3,4);
+	g.addEdge(3,5);
+	//forest
+	//g.addEdge(8,9);
+	//g.addEdge(9,10);
+	// g.print();
+	//g.bfs(0);
+	//g.SSP(0);
+	//g.DFS(0);
+	if(g.iscyclic_bfs(0))
+    {
+        cout<<"cyclic";
+    }
+    else
+        cout<<"notcyclic";
+	cout<<endl;
+	return 0;
+}
+
+
+//DFS CYCLE DETECTION //DIRECTED GRAPH //Striver graph series
 
 #include<bits/stdc++.h>
 using namespace std;
