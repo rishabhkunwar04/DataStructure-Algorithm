@@ -97,7 +97,7 @@ int main() {
     
     //CONST PARM,CONST FUNCN,DESTRUCTOR
 
-/*class Car{
+class Car{
 private:
     int price;
 public:
@@ -210,11 +210,11 @@ int main() {
  
     return 0;
     
-}*/
+}
     
 //CLASS OF COMPLEX NO
 
-/*class complex
+class complex
 {
 	int real,img; //by default private class
 	public:
@@ -280,10 +280,10 @@ int main()
 	c1.print();
 	return 0;
 	
-	}  */  
+	}  
   // VECTOR CLASS(user defined)
   
- /* class Vector 
+  class Vector 
   {
   	int *arry;  
   	int cs;
@@ -348,10 +348,10 @@ int main()
 	   }
 	   v.print();
    	return 0;
-   }*/
+   }
 
 //Let us define a Vector Class(User defined Vector)
-/*class Vector{
+class Vector{
     //Data Members and some functions
     int *arr;
     int cs;
@@ -459,7 +459,7 @@ int main() {
     
 
     return 0;
-}*/
+}
   
   
   //STL SET
@@ -546,52 +546,6 @@ int main() {
 
 */
 
-class Box{
-    private:
-    int l, b, h;
-    public:
-    Box(){
-        l = 0;
-        b = 0;
-        h = 0;
-    }
-    Box(int length, int breadth, int height){
-        l = length;
-        b = breadth;
-        h = height;
-    }
-    Box(const Box& B){  //copy constructor
-        l = B.l;
-        b = B.b;
-        h = B.h;
-    }
-    
-    int getLenght(){
-        return l;
-    }
-    int getBreadth(){
-        return b;
-    }
-    int getHeight(){
-        return h;
-    }
-    long long CalculateVolume(){
-        return (long long)l*b*h;
-    }
-    
-    bool operator < ( Box&A,Box& B){
-        if( (A.l < B.l) || ((A.b < B.b) && (A.l == B.l)) || ((A.h < B.h) && (A.l == B.l) && (A.b == B.b)) ){
-            return true;
-        }else{
-            return false;
-        }
-    };
-    
-    friend ostream& operator<< (ostream& output, const Box& B){//friend function can acess the private member  ..here we are
-        output << B.l << " " << B.b << " " << B.h;              // overloading ostream operator
-        return output;
-    }
-};
 
 
 

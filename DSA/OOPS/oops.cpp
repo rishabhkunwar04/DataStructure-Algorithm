@@ -74,161 +74,98 @@ int main()
 
 //virtual function
 
-// #include <iostream>  
-// using namespace std;  
-// class A  
-// {  
-//    int x=5;  
-//     public:  
-//     virtual void display()  
-//     {  
-//         std::cout << "Value of x is : " << x<<std::endl;  
-//     }  
-// };  
-// class B: public A  
-// {  
-//     int y = 10;  
-//     public:  
-//     void display()  
-//     {  
-//         std::cout << "Value of y is : " <<y<< std::endl;  
-//     }  
-// };  
-// int main()  
-//  {  
-//     A *a;  
-//     B b;  
-//     a = &b;  
-//    a->display(); 
+#include <iostream>  
+using namespace std;  
+class A  
+{  
+   int x=5;  
+    public:  
+    virtual void display()  
+    {  
+        std::cout << "Value of x is : " << x<<std::endl;  
+    }  
+};  
+class B: public A  
+{  
+    int y = 10;  
+    public:  
+    void display()  
+    {  
+        std::cout << "Value of y is : " <<y<< std::endl;  
+    }  
+};  
+int main()  
+ {  
+    A *a;  
+    B b;  
+    a = &b;  
+   a->display(); 
 
-//     return 0;  
-// } 
-
-
-
-// #include<iostream>
-// using namespace std;
- 
-// class Empty { };
- 
-// class Derived: Empty { int a; };
- 
-// int main()
-// {
-//     cout << sizeof(Derived); //its op is 4 byte;
-//     return 0;
-// }
-
-
-
-
-
-// #include<iostream>
-// using namespace std;
- 
-// class Empty { };
- 
-// int main()
-// {
-//     Empty a, b;
- 
-//     if (&a == &b)
-//       cout << "impossible " << endl;
-//     else
-//       cout << "Fine " << endl; //its op is fine because different objects have diff addresses
- 
-//    return 0;
-// }
-
-
-
-
-// #include<iostream>
-//  using namespace std;
- 
-// class Test {
-// public:
-//     int x; 
-// };
-// int main()
-// {
-//   Test t;
-//   cout << t.x; //it will give garbage value
-//   return 0;
-// }
-
-
+    return 0;  
+} 
 
 //FRIEND FUNCTION IN CPP...it is not avilable in java..it can access the private and public member of base classs
 
 
-// #include <iostream>
-// class A {
-// private:
-//     int a;
+#include <iostream>
+class A {
+private:
+    int a;
  
-// public:
-//     A() { a = 0; }
-//     friend class B; // Friend Class
-// };
+public:
+    A() { a = 0; }
+    friend class B; // Friend Class
+};
  
-// class B {
-// private:
-//     int b;
+class B {
+private:
+    int b;
  
-// public:
-//     void showA(A& x)
-//     {
-//         // Since B is friend of A, it can access
-//         // private members of A
-//         std::cout << "A::a=" << x.a;
-//     }
-// };
+public:
+    void showA(A& x)
+    {
+        // Since B is friend of A, it can access
+        // private members of A
+        std::cout << "A::a=" << x.a;
+    }
+};
  
-// int main()
-// {
-//     A a;
-//     B b;
-//     b.showA(a);
-//     return 0;
-// }
-// Output: 
+int main()
+{
+    A a;
+    B b;
+    b.showA(a);
+    return 0;
+}
 
-// A::a=0
-
-
-
-
-// #include <iostream>
+#include <iostream>
  
-// class A {
-//     int a;
+class A {
+    int a;
  
-// public:
-//     A() { a = 0; }
+public:
+    A() { a = 0; }
  
-//     // global friend function
-//     friend void showA(A&);
-// };
+    // global friend function
+    friend void showA(A&);
+};
  
-// void showA(A& x)
-// {
-//     // Since showA() is a friend, it can access
-//     // private members of A
-//     std::cout << "A::a=" << x.a;
-// }
+void showA(A& x)
+{
+    // Since showA() is a friend, it can access
+    // private members of A
+    std::cout << "A::a=" << x.a;
+}
  
-// int main()
-// {
-//     A a;
-//     showA(a);
-//     return 0;
-// }
-// Output: 
-
-// A::a = 0
+int main()
+{
+    A a;
+    showA(a);
+    return 0;
+}
 
 
+//********* DIAMOND PROBLEM *********//
 
 
 // As we can see from the figure that data members/function of class A are inherited twice to class D. 
@@ -323,4 +260,53 @@ int main()
 // his class is virtually inherited in class B 
 // and class C. Now class B and class C becomes virtual base class and no duplication of data member a is done.
 
-// Example 2:
+// #include<iostream>
+// using namespace std;
+ 
+// class Empty { };
+ 
+// class Derived: Empty { int a; };
+ 
+// int main()
+// {
+//     cout << sizeof(Derived); //its op is 4 byte;
+//     return 0;
+// }
+
+
+
+
+
+// #include<iostream>
+// using namespace std;
+ 
+// class Empty { };
+ 
+// int main()
+// {
+//     Empty a, b;
+ 
+//     if (&a == &b)
+//       cout << "impossible " << endl;
+//     else
+//       cout << "Fine " << endl; //its op is fine because different objects have diff addresses
+ 
+//    return 0;
+// }
+
+
+
+
+// #include<iostream>
+//  using namespace std;
+ 
+// class Test {
+// public:
+//     int x; 
+// };
+// int main()
+// {
+//   Test t;
+//   cout << t.x; //it will give garbage value
+//   return 0;
+// }
