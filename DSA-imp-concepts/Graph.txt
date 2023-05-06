@@ -1,4 +1,4 @@
- 1. To traverse in all direction in BFS by single loop
+ 1.To traverse in all direction in BFS by single loop
 
  // Four directions: Up, Down, Left and Right.
     const pair<int, int> direction[4] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
