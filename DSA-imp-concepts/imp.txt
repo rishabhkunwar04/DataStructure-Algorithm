@@ -1,0 +1,30 @@
+ ## To traverse in all direction in BFS by single loop
+
+ // Four directions: Up, Down, Left and Right.
+ //1st method
+    const pair<int, int> direction[4] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+
+    for (pair<int, int> dir : direction) {
+                    int x = landCell.first + dir.first;
+                    int y = landCell.second + dir.second;
+         }
+
+// 2nd method 
+
+int d[4][2] = {{0,1},{1,0},{-1,0},{0,-1}};
+
+for(int k = 0; k<4;++k){
+
+     int x=i+d[k][0];
+     int y=j+d[k][1];
+     }
+
+
+ ## problem statement: Given an integer num, repeatedly add all its digits until the result has only one digit, and return it.
+
+      soln: If number is divisible by 9 completely then digital root(ans) is 9,else the digital root is remainder obtained.
+     observation:  We can find regular pattern by enumerate following case:
+      1=1; 2=2; 3=3; 4=4; 5=5; 6=6; 7=7; 8=8; 9=9;
+      10=1; 11=2; 12=3; 13=4; 14=5; 15=6; 16=7; 17=8; 18=9;
+      19=1; 20=2; 21=3; 22=4; 23=5; 24=6; 25=7; 26=8; 27=9   
+
