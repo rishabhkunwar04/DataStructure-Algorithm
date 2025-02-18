@@ -18,16 +18,7 @@ void selectionsort(int a[1000000],int n)
 	}
 	return;
 }
-void printarray(int a[],int n)
-{
-	for( int i=0;i<n;i++)
-	{
-		cout<<a[i]<<" ";
-	}
-	cout<<endl;
-	return;
-	
-}
+
 int main()
 {
 	int a[1000000],n;
@@ -37,6 +28,5 @@ int main()
 		cin>>a[i];
 	}
 	selectionsort(a,n);
-	printarray(a,n);
 	return 0;
 }
