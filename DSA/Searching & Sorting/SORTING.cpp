@@ -1,6 +1,46 @@
 //*BUBBLE SORT**
 #include<iostream>
 using namespace std;
+
+//* Bubble Sort */
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// An optimized version of Bubble Sort 
+void bubbleSort(vector<int>& arr) {
+    int n = arr.size();
+    bool swapped;
+  
+    for (int i = 0; i < n - 1; i++) {
+        swapped = false;
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                swap(arr[j], arr[j + 1]);
+                swapped = true;
+            }
+        }
+      
+        // If no two elements were swapped, then break
+        if (!swapped)
+            break;
+    }
+}
+
+// Function to print a vector
+void printVector(const vector<int>& arr) {
+    for (int num : arr)
+        cout << " " << num;
+}
+
+int main() {
+    vector<int> arr = { 64, 34, 25, 12, 22, 11, 90 };
+    bubbleSort(arr);
+    cout << "Sorted array: \n";
+    printVector(arr);
+    return 0;
+}
+/* Bubble sort via Recursion*/
 void bubblesort(int *a,int n,int i)  //meathod 1
 {
 	if(i==n-1)
@@ -69,6 +109,7 @@ int main()
 	return 0;
 }
 
+
 //**SELECTION SORT**/
 
 void selection_sort (int A[ ], int n) {
@@ -96,29 +137,40 @@ void selection_sort (int A[ ], int n) {
 
 //INSERTION SORT
 
-void insertion_sort ( int A[ ] , int n) 
+// C++ program for implementation of Insertion Sort
+#include <iostream>
+using namespace std;
+
+/* Function to sort array using insertion sort */
+void insertionSort(int arr[], int n)
 {
-     for( int i = 0 ;i < n ; i++ ) {
-    //storing current element whose left side is checked for its 
-             //correct position .
+    for (int i = 1; i < n; ++i) {
+        int key = arr[i];
+        int j = i - 1;
 
-      int temp = A[ i ];    
-      int j = i;
-
-       // check whether the adjacent element in left side is greater or
-         //   less than the current element. 
-
-          while(  j > 0  && temp < A[ j -1]) {
-
-           // moving the left side element to one position forward.
-                A[ j ] = A[ j-1];   
-                j= j - 1;
-
-           }
-         // moving current element to its  correct position.
-           A[ j ] = temp;       
-     }  
+        /* Move elements of arr[0..i-1], that are
+           greater than key, to one position ahead
+           of their current position */
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        arr[j + 1] = key;
+    }
 }
+
+
+int main()
+{
+    int arr[] = { 12, 11, 13, 5, 6 };
+    int n = sizeof(arr) / sizeof(arr[0]);
+    insertionSort(arr, n);
+
+    return 0;
+}
+
+/* This code is contributed by Hritik Shah. */
+
 
 
 //**MERGE SORT***/
