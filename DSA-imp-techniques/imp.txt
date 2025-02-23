@@ -20,6 +20,12 @@ for(int k = 0; k<4;++k){
      }
 
 
+// Technique to Move in all 8 direction
+
+ vector<int>row={-1,-1,-1,0,0,1,1,1};
+ vector<int>col={-1,0,1,-1,1,-1,0,1};
+ 
+
  ## problem statement: Given an integer num, repeatedly add all its digits until the result has only one digit, and return it.
 
       soln: If number is divisible by 9 completely then digital root(ans) is 9,else the digital root is remainder obtained.
