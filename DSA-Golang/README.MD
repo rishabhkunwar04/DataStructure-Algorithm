@@ -1,6 +1,7 @@
 # TREE
-### Left BFS
-```
+---
+Q. left view of Binary tree
+```Golang
 package main
 
 import (
@@ -47,8 +48,8 @@ func LeftView(root *Node) []int {
 	return result
 }
 ```
-### left view  via MAP
-```
+Q. left view of Binary tree via MAP
+```Golang
 package main
 
 import "fmt"
@@ -91,6 +92,7 @@ func (s *Solution) LeftView(root *Node) []int {
 ```
 
 # Trie
+---
 
 ​Q.​Design a data structure that supports adding new words and finding if a string matches any previously added string.
 
@@ -119,9 +121,7 @@ wordDictionary.search("bad"); // return True
 wordDictionary.search(".ad"); // return True
 wordDictionary.search("b.."); // return True
 
-
-
-```
+```Golang
 package main
 
 import "fmt"
