@@ -257,3 +257,140 @@ int main() {
 }
 
 ```
+
+Q. Implement "TRIE” data structure from scratch with the following functions.
+
+Trie(): Initialize the object of this “TRIE” data structure.
+insert(“WORD”): Insert the string “WORD” into this “TRIE” data structure.
+countWordsEqualTo(“WORD”): Return how many times this “WORD” is present in this “TRIE”.
+countWordsStartingWith(“PREFIX”): Return how many words are there in this “TRIE” that have the string “PREFIX” as a prefix.
+erase(“WORD”): Delete one occurrence of the string “WORD” from the “TRIE”.
+
+Examples:
+Input : ["Trie", "insert", "countWordsEqualTo", "insert", "countWordsStartingWith", "erase", "countWordsStartingWith"]
+
+[ [], ["apple"], ["apple"], ["app"], ["app"], ["apple"], ["app"] ]
+
+
+
+Output : [null, null, 1, null, 2, null, 1]
+
+
+
+Explanation :
+
+Trie trie = new Trie()
+
+trie.insert("apple")
+
+trie.countWordsEqualTo("apple")  // return 1
+
+trie.insert("app") 
+
+trie.countWordsStartingWith("app") // return 2
+
+trie.erase("apple")
+
+trie.countWordsStartingWith("app")   // return 1
+
+Input : ["Trie", "insert", "countWordsEqualTo", "insert", "erase", "countWordsStartingWith"]
+
+[ [], ["mango"], ["apple"], ["app"], ["app"], ["mango"] ]
+
+
+
+Output : [null, null, 0, null, null, 1]
+
+
+
+Explanation :
+
+Trie trie = new Trie()
+
+trie.insert("mango")
+
+trie.countWordsEqualTo("apple")  // return 0
+
+trie.insert("app") 
+
+trie.erase("app")
+
+trie.countWordsStartingWith("mango") // return 1
+
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class TrieNode {
+public:
+    TrieNode* links[26] = {nullptr};
+    int prefixCount = 0;   // Count of words sharing this prefix
+    int wordEndCount = 0;  // Count of exact word endings here
+
+    bool containsKey(char ch) {
+        return links[ch - 'a'] != nullptr;
+    }
+
+    void put(char ch, TrieNode* node) {
+        links[ch - 'a'] = node;
+    }
+
+    TrieNode* get(char ch) {
+        return links[ch - 'a'];
+    }
+};
+
+class Trie {
+private:
+    TrieNode* root;
+
+public:
+    Trie() {
+        root = new TrieNode();
+    }
+
+    void insert(string word) {
+        TrieNode* node = root;
+        for (char ch : word) {
+            if (!node->containsKey(ch)) {
+                node->put(ch, new TrieNode());
+            }
+            node = node->get(ch);
+            node->prefixCount++;
+        }
+        node->wordEndCount++;
+    }
+
+    int countWordsEqualTo(string word) {
+        TrieNode* node = root;
+        for (char ch : word) {
+            if (!node->containsKey(ch)) return 0;
+            node = node->get(ch);
+        }
+        return node->wordEndCount;
+    }
+
+    int countWordsStartingWith(string prefix) {
+        TrieNode* node = root;
+        for (char ch : prefix) {
+            if (!node->containsKey(ch)) return 0;
+            node = node->get(ch);
+        }
+        return node->prefixCount;
+    }
+
+    void erase(string word) {
+        if (countWordsEqualTo(word) == 0) return;
+
+        TrieNode* node = root;
+        for (char ch : word) {
+            TrieNode* next = node->get(ch);
+            next->prefixCount--;
+            node = next;
+        }
+        node->wordEndCount--;
+    }
+};
+
+```
