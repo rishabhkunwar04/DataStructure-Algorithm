@@ -40,13 +40,9 @@ for(int k = 0; k<4;++k){
      ```
 
 
-
-
-
-
 # Resources
 
-
+```
 1. Binary Search by Aditya Verma <br/>
     Videos Link : https://www.youtube.com/playlist?list=PL_z_8CaSLPWeYfhtuKHj-9MpYb6XQJ_f2
 
@@ -77,3 +73,4 @@ for(int k = 0; k<4;++k){
 9. Trie by Striver <br/>
     Videos Link : https://youtube.com/playlist?list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp
 
+```
