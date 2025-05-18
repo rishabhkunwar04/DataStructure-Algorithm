@@ -1,7 +1,7 @@
 ## Trie
 https://leetcode.com/problems/implement-trie-prefix-tree/description/
 
-
+![alt text](image.png)
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
