@@ -152,3 +152,108 @@ Insertion:	O(n) Here n is the length of the string inserted
 Searching:	O(n) Here n is the length of the string searched
 Prefix Searching :O(n) Here n is the length of the string searched
 ```
+
+Q. ​​Design a data structure that supports adding new words and finding if a string matches any previously added string.
+
+Implement the WordDictionary class:
+
+WordDictionary() Initializes the object.
+void addWord(word) Adds word to the data structure, it can be matched later.
+bool search(word) Returns true if there is any string in the data structure that matches word or false otherwise. word may contain dots '.' where dots can be matched with any letter.
+
+
+Example:
+
+Input
+["WordDictionary","addWord","addWord","addWord","search","search","search","search"]
+[[],["bad"],["dad"],["mad"],["pad"],["bad"],[".ad"],["b.."]]
+Output
+[null,null,null,null,false,true,true,true]
+
+Explanation
+WordDictionary wordDictionary = new WordDictionary();
+wordDictionary.addWord("bad");
+wordDictionary.addWord("dad");
+wordDictionary.addWord("mad");
+wordDictionary.search("pad"); // return False
+wordDictionary.search("bad"); // return True
+wordDictionary.search(".ad"); // return True
+wordDictionary.search("b.."); // return True
+
+```cpp
+#include <iostream>
+#include <unordered_map>
+#include <string>
+using namespace std;
+
+class Node {
+public:
+    unordered_map<char, Node*> child;
+    bool isEnd;
+
+    Node() {
+        isEnd = false;
+    }
+};
+
+class WordDictionary {
+private:
+    Node* root;
+
+    bool dfs(const string& word, int index, Node* node) {
+        if (index == word.size()) {
+            return node->isEnd;
+        }
+
+        char ch = word[index];
+        if (ch == '.') {
+            for (auto& entry : node->child) {
+                if (dfs(word, index + 1, entry.second)) {
+                    return true;
+                }
+            }
+            return false;
+        } else {
+            if (node->child.find(ch) == node->child.end()) {
+                return false;
+            }
+            return dfs(word, index + 1, node->child[ch]);
+        }
+    }
+
+public:
+    WordDictionary() {
+        root = new Node();
+    }
+
+    void addWord(const string& word) {
+        Node* node = root;
+        for (char ch : word) {
+            if (node->child.find(ch) == node->child.end()) {
+                node->child[ch] = new Node();
+            }
+            node = node->child[ch];
+        }
+        node->isEnd = true;
+    }
+
+    bool search(const string& word) {
+        return dfs(word, 0, root);
+    }
+};
+
+int main() {
+    WordDictionary wordDictionary;
+    wordDictionary.addWord("bad");
+    wordDictionary.addWord("dad");
+    wordDictionary.addWord("mad");
+
+    cout << boolalpha << wordDictionary.search(".ad") << endl;  // true
+    cout << boolalpha << wordDictionary.search("bad") << endl;  // true
+    cout << boolalpha << wordDictionary.search("b..") << endl;  // true
+    cout << boolalpha << wordDictionary.search("pad") << endl;  // false
+
+    return 0;
+}
+
+```
