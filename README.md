@@ -1,7 +1,7 @@
  # DSA Notes 
  
  Q. To traverse in all direction in BFS by single loop
-```
+```c
  // Four directions: Up, Down, Left and Right.
  //1st method
     const pair<int, int> direction[4] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
@@ -30,7 +30,8 @@ for(int k = 0; k<4;++k){
 
  Q. problem statement: Given an integer num, repeatedly add all its digits until the result has only one digit, and return it.
 
-     ```cpp
+     ```c
+     
       soln: If number is divisible by 9 completely then digital root(ans) is 9,else the digital root is remainder obtained.
      observation:  We can find regular pattern by enumerate following case:
       1=1; 2=2; 3=3; 4=4; 5=5; 6=6; 7=7; 8=8; 9=9;
