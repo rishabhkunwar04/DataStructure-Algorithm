@@ -1,4 +1,4 @@
-# TREE
+# Tree
 ---
 Q. left view of Binary tree
 ```Golang

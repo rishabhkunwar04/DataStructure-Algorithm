@@ -1,6 +1,6 @@
  # DSA Notes 
  
- # To traverse in all direction in BFS by single loop
+ Q. To traverse in all direction in BFS by single loop
 ```
  // Four directions: Up, Down, Left and Right.
  //1st method
