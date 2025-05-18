@@ -1,10 +1,6 @@
 ## Trie
 https://leetcode.com/problems/implement-trie-prefix-tree/description/
 
-Operation	Time Complexity
-Insertion:	O(n) Here n is the length of the string inserted
-Searching:	O(n) Here n is the length of the string searched
-Prefix Searching :O(n) Here n is the length of the string searched
 
 ```cpp
 #include <bits/stdc++.h>
@@ -150,4 +146,9 @@ int main()
 
     return 0;
 }
+
+Operation	Time Complexity
+Insertion:	O(n) Here n is the length of the string inserted
+Searching:	O(n) Here n is the length of the string searched
+Prefix Searching :O(n) Here n is the length of the string searched
 ```
